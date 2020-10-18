@@ -1,7 +1,7 @@
 class CreateWeatherStations < ActiveRecord::Migration[6.0]
   def change
     create_table :weather_stations do |t|
-      t.integer "weatherStation"
+      t.integer "weatherstation"
       t.float "temperatures"
       t.float "humidity"
       t.float "voltageBattery"

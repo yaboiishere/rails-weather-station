@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Websocket Client</title>
+	</head>
+	<body>
+		<script>
+			var exampleSocket = new WebSocket("ws://localhost:3000/cable");
+			exampleSocket.onopen = function (event) {
+				let msg = {
+					command: "subscribe",
+					identifier: JSON.stringify({ channel: "StationChannel" }),
+				};
+				exampleSocket.send(JSON.stringify(msg));
+			};
+			exampleSocket.onmessage = function (event) {
+				console.log(event.data);
+			};
+			function click() {
+				let msg = {
+					command: "message",
+					identifier: JSON.stringify({ channel: "StationChannel" }),
+					data: JSON.stringify({
+						action: "create",
+						data: JSON.stringify({
+							weatherstation: 1,
+							temperatures: 29,
+							humidity: 29,
+							voltageBattery: 4.3,
+							absolutePressure: 45,
+							relativePressure: 45,
+							dewPoint: 45,
+							heatIndex: 45,
+							zambrettisWords: "kek",
+							accuracyInPercents: 99,
+							tendInWords: "kek",
+							dewPointSpread: 3,
+						}),
+					}),
+				};
+				exampleSocket.send(JSON.stringify(msg));
+			}
+			// const ws = openConnection()
+		</script>
+		<button onclick="click()">asdasd</button>
+	</body>
+</html>

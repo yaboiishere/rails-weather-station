@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_171500) do
   enable_extension "plpgsql"
 
   create_table "weather_stations", force: :cascade do |t|
-    t.integer "weatherStation"
+    t.integer "weatherstation"
     t.float "temperatures"
     t.float "humidity"
     t.float "voltageBattery"
