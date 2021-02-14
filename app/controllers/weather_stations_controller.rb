@@ -21,4 +21,7 @@ class WeatherStationsController < ApplicationController
     def sensor_params
         params.require(:data).permit(:weatherStation, :temperatures, :humidity, :voltageBattery, :absolutePressure, :relativePressure, :dewPoint, :heatIndex, :zambrettisWords, :accuracyInPercents, :tendInWords, :dewPointSpread)
     end
+    def normalizeTime(str)
+        eval(str)
+    end
 end
