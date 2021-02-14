@@ -42,7 +42,7 @@ production:
   primary:
     <<: *default
     adapter: <%= ENV.fetch("POSTGRESQL_ADAPTER") || "postgresql"%>
-    url: <%= ENV.fetch("POSTGRESQL_URL") || "postgresql://localhost:5432/rails_weather_station_production"%>
+    url: <%= ENV.fetch("DATABASE_URL") || "postgresql://localhost:5432/rails_weather_station_production"%>
     database: rails_weather_station_production
   primary_replica:
     <<: *default
