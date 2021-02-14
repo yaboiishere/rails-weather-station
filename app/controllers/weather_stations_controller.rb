@@ -1,7 +1,12 @@
 class WeatherStationsController < ApplicationController
 
     def create 
-        weatherStation.create(sensor_params)
+        ws = weatherStation.new(sensor_params)
+        if ws.save
+            ClientChannel.broadcast_to(ws.weatherstation, {room: ws.weatherstation, data: ws})
+        else
+            ClientChannel.broadcast_to(ws.weatherstation, {room: ws.weatherstation, data: ws.errors})
+        end
     end
 
     private

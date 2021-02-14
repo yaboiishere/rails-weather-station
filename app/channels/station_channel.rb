@@ -15,12 +15,17 @@ class StationChannel < ApplicationCable::Channel
   def create args
     puts args
     args_hash = JSON.parse(args["data"])
-    WeatherStation.create! args_hash
+    ws = WeatherStation.new args_hash
+    if ws.save
+      ClientChannel.broadcast_to(ws.weatherstation, {room: ws.weatherstation, data: ws})
+    else
+      ClientChannel.broadcast_to(ws.weatherstation, {room: ws.weatherstation, data: ws.errors})
+    end
     "asdas"
   end
 
   private
-	def sensor_params arg
-    arg.require(:data).permit(:weatherstation, :temperatures, :humidity, :voltageBattery, :absolutePressure, :relativePressure, :dewPoint, :heatIndex, :zambrettisWords, :accuracyInPercents, :tendInWords, :dewPointSpread)
+	def sensor_params args
+    args.require(:data).permit(:weatherstation, :temperatures, :humidity, :voltageBattery, :absolutePressure, :relativePressure, :dewPoint, :heatIndex, :zambrettisWords, :accuracyInPercents, :tendInWords, :dewPointSpread)
   end
 end
