@@ -9,7 +9,7 @@ class WeatherStationsController < ApplicationController
         end
     end
     def index
-        redirect_to "https://new_front_end.com"
+        redirect_to "https://react-weather-station.herokuapp.com/admin/dashboard"
     end
     def getAll
         par = params.permit(:weatherStation,:timeSpan)
