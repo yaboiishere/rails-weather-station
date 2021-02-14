@@ -26,5 +26,7 @@ test:
   database: rails_weather_station_test
 production:
   <<: *default
-  adapter: <%= ENV.fetch("adapter")%>
-  url: <%= ENV.fetch("JAWSDB_URL") %>
+#  adapter: <%#= ENV.fetch("adapter")%>
+#  url: <%#= ENV.fetch("JAWSDB_URL") %>
+  adapter: <%= ENV.fetch("POSTGRESQL_ADAPTER")%>
+  url: <%= ENV.fetch("DATABASE_URL") %>
