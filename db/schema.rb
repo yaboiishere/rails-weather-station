@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 1) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "weatherStations", force: :cascade do |t|
+  create_table "weatherstations", force: :cascade do |t|
     t.integer "weatherStation"
     t.float "temperatures"
     t.float "humidity"
