@@ -1,4 +1,4 @@
-class CreateWeatherStations < ActiveRecord::Migration[6.0]
+class CreateWeatherstations < ActiveRecord::Migration[6.0]
   def change
     create_table :weatherstations do |t|
       t.integer "weatherStation"
