@@ -11,6 +11,11 @@ class WeatherStationsController < ApplicationController
     def index
         redirect_to "https://new_front_end.com"
     end
+    def getAll
+        par = params.permit(:weatherStation,:timeSpan)
+        js = WeatherStation.where(created_at: normalizeTime(par["timeSpan"])..Time.now,weatherStation:par["weatherStation"])
+        render json: js.to_json
+    end
 
     private
     def sensor_params
