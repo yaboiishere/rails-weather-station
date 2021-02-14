@@ -41,11 +41,11 @@ test:
 production:
   primary:
     <<: *default
-    adapter: <%= ENV.fetch("POSTGRESQL_ADAPTER") || "postgresql"%>
-    url: <%= ENV.fetch("DATABASE_URL") || "postgresql://localhost:5432/rails_weather_station_production"%>
+    adapter: <%= ENV.fetch("POSTGRESQL_ADAPTER")%>
+    url: <%= ENV.fetch("DATABASE_URL") %>
     database: rails_weather_station_production
   primary_replica:
     <<: *default
-    adapter: <%= ENV.fetch("adapter") || "postgresql" %>
-    url: <%= ENV.fetch("JAWSDB_URL" || "postgresql://localhost:5432/rails_weather_station_production_replica") %>
+    adapter: <%= ENV.fetch("adapter")%>
+    url: <%= ENV.fetch("JAWSDB_URL") %>
     replica: true
