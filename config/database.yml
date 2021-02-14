@@ -9,43 +9,42 @@ default: &default
   timeout: 5000
 
 development:
-#  primary:
-  <<: *default
-  adapter: postgresql
-  username: postgres
-  password: postgres
-  database: rails_weather_station_development
-#  primary_replica:
-#    <<: *default
-#    adapter: postgresql
-#    username: postgres
-#    password: postgres
-#    database: rails_weather_station_development
+  primary:
+    <<: *default
+    adapter: postgresql
+    username: postgres
+    password: postgres
+    database: rails_weather_station_development
+  primary_replica:
+    <<: *default
+    adapter: postgresql
+    username: postgres
+    password: postgres
+    database: rails_weather_station_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-#  primary:
-  <<: *default
-  adapter: postgresql
-  username: postgres
-  password: postgres
-  database: rails_weather_station_test
-#  primary_replica:
-#    <<: *default
-#    adapter: postgresql
-#    username: postgres
-#    password: postgres
-#    database: rails_weather_station_test
+  primary:
+    <<: *default
+    adapter: postgresql
+    username: postgres
+    password: postgres
+    database: rails_weather_station_test
+  primary_replica:
+    <<: *default
+    adapter: postgresql
+    username: postgres
+    password: postgres
+    database: rails_weather_station_test
 production:
-#  primary:
-  <<: *default
-  adapter: <%= ENV.fetch("POSTGRESQL_ADAPTER")%>
-  url: <%= ENV.fetch("DATABASE_URL") %>
-  database: rails_weather_station_production
-#  primary_replica:
-#    <<: *default
-#    adapter: <%#= ENV.fetch("adapter")%>
-#    url: <%#= ENV.fetch("JAWSDB_URL") %>
-#    replica: true
+  primary:
+    <<: *default
+    adapter: <%= ENV.fetch("POSTGRESQL_ADAPTER")%>
+    url: <%= ENV.fetch("DATABASE_URL") %>
+  primary_replica:
+    <<: *default
+    adapter: <%= ENV.fetch("adapter")%>
+    url: <%= ENV.fetch("JAWSDB_URL") %>
+    replica: true
