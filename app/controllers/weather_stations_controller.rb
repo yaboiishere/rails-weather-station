@@ -9,7 +9,7 @@ class WeatherStationsController < ApplicationController
         end
     end
     def index
-        puts "index"
+        redirect_to "https://new_front_end.com"
     end
 
     private
