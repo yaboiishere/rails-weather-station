@@ -3,9 +3,11 @@ class WeatherStationsController < ApplicationController
     def create 
         ws = WeatherStation.new(sensor_params)
         if ws.save
-            ClientChannel.broadcast_to(ws.weatherStation, {room: ws.weatherStation, data: ws})
+            # ClientChannel.broadcast_to(ws.weatherStation, {room: ws.weatherStation, data: ws})
+            ActionCable.server.broadcast("client_channel_#{ws.weatherStation}", {room: ws.weatherStation, data: ws})
         else
-            ClientChannel.broadcast_to(ws.weatherStation, {room: ws.weatherStation, data: ws.errors})
+            # ClientChannel.broadcast_to(ws.weatherStation, {room: ws.weatherStation, data: ws.errors})
+            ActionCable.server.broadcast("client_channel_#{ws.weatherStation}", {room: ws.weatherStation, data: ws.errors})
         end
     end
     def index
