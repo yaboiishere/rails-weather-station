@@ -46,7 +46,7 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
-  config.action_cable.allowed_request_origins = ['https://react-weather-station.herokuapp.com', 'http://react-weather-station.herokuapp.com, https://weather-station-server.herokuapp.com', "http://weather-station-server.herokuapp.com"]
+  config.action_cable.allowed_request_origins = ['https://react-weather-station.herokuapp.com', 'http://react-weather-station.herokuapp.com, https://weather-station-server.herokuapp.com', "http://weather-station-server.herokuapp.com", "http://localhost:3000"]
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
