@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: MyString
+  weather_station: 1
+
+two:
+  owner: MyString
+  weather_station: 1
