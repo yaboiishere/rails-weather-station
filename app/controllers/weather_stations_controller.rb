@@ -6,9 +6,9 @@ class WeatherStationsController < ApplicationController
     if ws.save
       # ClientChannel.broadcast_to(ws.weatherStation, {room: ws.weatherStation, data: ws})
       ActionCable.server.broadcast("client_channel_#{ws.weatherStation}", { room: ws.weatherStation, data: ws })
-      # unless Person.where(:weather_station => ws.weatherStation).exists?
-      #   Person.create(:weather_station => ws.weatherStation)
-      # end
+      unless Person.where(:weather_station => ws.weatherStation).exists?
+        Person.create(:weather_station => ws.weatherStation)
+      end
     else
       # ClientChannel.broadcast_to(ws.weatherStation, {room: ws.weatherStation, data: ws.errors})
       ActionCable.server.broadcast("client_channel_#{ws.weatherStation}", { room: ws.weatherStation, data: ws.errors })
