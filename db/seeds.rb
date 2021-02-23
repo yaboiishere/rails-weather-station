@@ -5,5 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Person.create([{name: "Киро", weather_station: 1}, {name: "Крис", weather_station: 3},{name: "Злато", weather_station: 4},{name: "Лудия", weather_station: 5}])
-Person.create({name: "Мишо", weather_station: 2})
+User.create!({ username: "Киро", email: "kirilkirov01@gmail.com", password: "testparola", password_confirmation: "testparola" })
+User.create!({ username: "Мишо", email: "mixaildobrev@gmail.com", password: "testparola", password_confirmation: "testparola" })
+User.create!({ username: "Крис", email: "kres.mihalew@gmail.com", password: "testparola", password_confirmation: "testparola" })
+User.create!({ username: "Злато", email: "zlatoto@gmail.com", password: "testparola", password_confirmation: "testparola" })
+User.create!({ username: "Лудия", email: "ludiq@gmail.com", password: "testparola", password_confirmation: "testparola" })
+# users.save
+User.all.inspect()
+Person.create([{ weather_station: 1, users_id: 1, approved: true }, { weather_station: 3, users_id: 3, approved: true }, { weather_station: 4, users_id: 4, approved: true }, { weather_station: 5, users_id: 5, approved: true }])
+Person.create({ weather_station: 2, users_id: 2, approved: true })
