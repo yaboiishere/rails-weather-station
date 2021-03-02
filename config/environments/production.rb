@@ -15,7 +15,7 @@ Rails.application.configure do
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
-  # config.require_master_key = true
+  config.require_master_key = true
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
@@ -47,6 +47,11 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   config.action_cable.allowed_request_origins = ['https://react-weather-station.herokuapp.com', 'http://react-weather-station.herokuapp.com, https://weather-station-server.herokuapp.com', "http://weather-station-server.herokuapp.com", "http://localhost:3000", "https://yaboiishere.github.io"]
+
+  config.hosts = [
+    'https://react-weather-station.herokuapp.com', 'http://react-weather-station.herokuapp.com, https://weather-station-server.herokuapp.com', "http://weather-station-server.herokuapp.com", "https://yaboiishere.github.io"
+  ]
+
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
