@@ -2,7 +2,8 @@ class ManagementChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
     stream_from ManagementChannel
-    if Opt.where(name: "managementLock").last.value == "false"
+    opt = Opt.where(name: "managementLock").last.value
+    if opt == "false" or opt == "0"
       Opt.where(name: "managementLock").update(value: params[:username])
       broadcast_to("management_channel", message: { status: "locked successfully", locked: true })
     else
