@@ -48,10 +48,6 @@ Rails.application.configure do
 
   config.action_cable.allowed_request_origins = ['https://react-weather-station.herokuapp.com', 'http://react-weather-station.herokuapp.com, https://weather-station-server.herokuapp.com', "http://weather-station-server.herokuapp.com", "http://localhost:3000", "https://yaboiishere.github.io"]
 
-  config.hosts = [
-    'https://react-weather-station.herokuapp.com', 'http://react-weather-station.herokuapp.com, https://weather-station-server.herokuapp.com', "http://weather-station-server.herokuapp.com", "https://yaboiishere.github.io"
-  ]
-
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
