@@ -1,3 +1,3 @@
 class Person < ApplicationRecord
-  has_one(:users)
+  belongs_to(:user, :foreign_key => 'users_id')
 end
