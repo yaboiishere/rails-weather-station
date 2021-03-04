@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
   end
 
   def update
-    args = params.permit(:id, :approved, :weather_station)
+    args = params.permit(:approved, :weather_station)
     resp = Person.update(id = args.id, args)
     render json: resp.to_json
   end
