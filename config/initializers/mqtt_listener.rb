@@ -2,7 +2,7 @@ ids = WeatherStation.pluck(:weatherStation).uniq
 require 'mqtt'
 require 'uri'
 Thread.new do
-  MQTT::Client.connect(ENV["CLOUDAMQP_MQTT_URL"]) do |c|
+  MQTT::Client.connect(host: ENV["CLOUDAMQP_MQTT_HOST"], port: ENV["CLOUDAMQP_MQTT_PORT"], username: ENV["CLOUDAMQP_USERNAME"], password: ENV["CLOUDAMQP_PASSWORD"]) do |c|
     # If you pass a block to the get method, then it will loop
     c.get('test') do |topic, message|
       puts "#{topic}: #{message}"
